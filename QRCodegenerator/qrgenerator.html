@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        h1 {
+            color: rgb(154, 40, 220);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+            text-align: left;
+        }
+        input, select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: rgb(154, 40, 220);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: rgb(130, 30, 190);
+        }
+        #qrcode {
+            margin-top: 20px;
+        }
+        #downloadBtn, #b1 {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration</h1>
+        <form id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            
+            <label for="register">Register No:</label>
+            <input type="number" id="register" placeholder="Enter your Register Number" required>
+            
+            <label for="degree">Degree:</label>
+            <select id="degree" required>
+                <option value="">Select Degree</option>
+                <option value="BSc">BSc</option>
+                <option value="BTech">B.Tech</option>
+                <option value="BA">BA</option>
+                <option value="BCom">B.Com</option>
+                <option value="mba">MBA</option>
+                <option value="mtech">M.Tech</option>
+                <option value="mcom">M.Com</option>
+            </select>
+            
+            <label for="branch">Branch:</label>
+            <select id="branch" required>
+                <option value="">Select Branch</option>
+                <option value="Computer Science">CSE</option>
+                <option value="Electronics">ECE</option>
+                <option value="Mechanical">Mech</option>
+                <option value="Civil">Civil</option>
+                <option value="it">IT</option>
+                <option value="aids">AIDS</option>
+            </select>
+            
+            <label for="passout">Year Of Passing:</label>
+            <select id="passout" required>
+                <option value="">Select Year</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+            </select>
+            
+            <label for="cgpa">CGPA:</label>
+            <input type="number" id="cgpa" required>
+            
+            <label for="link">Social Media URL:</label>
+            <input type="url" id="link" placeholder="Enter the URL" required>
+            
+            <button type="button" onclick="generateQR()">Generate QR Code</button>
+        </form>
+        
+        <div id="qrcode" style="display: none;"></div>
+        <button id="downloadBtn" style="display: none;" onclick="downloadQR()">Download QR Code</button>
+        <button type="submit" id="b1" form="registrationForm">Submit</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function generateQR() {
+            const url = document.getElementById("link").value;
+            const qrCodeContainer = document.getElementById("qrcode");
+            qrCodeContainer.innerHTML = "";
+            
+            if (url.trim() !== "") {
+                new QRCode(qrCodeContainer, { text: url, width: 150, height: 150 });
+                localStorage.setItem("SocialMediaURL", url);
+                qrCodeContainer.style.display = "block";
+                document.getElementById("downloadBtn").style.display = "block";
+            } else {
+                alert("Please enter a valid URL");
+            }
+        }
+
+        function downloadQR() {
+            let qrCanvas = document.querySelector("#qrcode canvas");
+            if (!qrCanvas) {
+                alert("Please generate a QR code first!");
+                return;
+            }
+            
+            let link = document.createElement("a");
+            link.href = qrCanvas.toDataURL("image/png");
+            link.download = "student_qrcode.png";
+            link.click();
+        }
+
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            alert("Submitted Successfully!");
+            this.reset(); 
+        });
+    </script>
+</body>
+</html>
