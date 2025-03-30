@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User</title>
+    <style>
+       body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: azure;
+    color: black;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 7px;
+    box-shadow: 0 2px grey;
+    background-color: rgb(74, 74, 172);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: rgb(4, 4, 129);
+}
+
+#user {
+    text-align: center;
+    margin-top: 20px;
+}
+
+img {
+    border-radius: 25px;
+    max-width: 150px;
+    height: auto;
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Random User Details</h1><br>
+    <button onclick="fetchdata()">Click here</button><br>
+    <div id="user">
+        <p>Click above button to get the random user details</p>
+    </div>
+    <script>
+        async function fetchdata()
+        {
+            const userDiv = document.getElementById('user');
+            try{
+                const response = await fetch('https://randomuser.me/api/');
+                const data = await response.json();
+                const res = data.results[0];
+                const name = `${res.name.title}. ${res.name.first} .${res.name.last}`;
+                const gender = res.gender;
+                const email = res.email;
+                const phone = res.phone;
+                const picture = res.picture.large;
+                userDiv.innerHTML = `<img src="${picture}" alt="Profile Picture"><br>
+                <h2>${name}</h2>
+                <h2>${gender}</h2>
+                <p>Email: ${email}</p>
+                <p>phone: ${phone}</p>`;
+            }
+            catch(error)
+            {
+                userDiv.innerHTML = '<p>Failed to Fetch the User data</p>';
+            }
+        }
+    </script>
+</body>
+</html>
