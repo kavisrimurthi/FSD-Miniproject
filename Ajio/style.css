@@ -1,0 +1,185 @@
+*{
+    margin: 2px;
+    width: auto;
+}
+.titlebar{
+    height: 9rem;
+    width: 1205px;
+    background-color: white;
+    display: flex;
+    border-top:2px inset;
+    border-color: rgb(42, 41, 41);
+    border-bottom: 4px ridge;
+    margin-right: 50px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:1px;
+    width:1px;
+    margin-bottom:40px;
+    margin-left: 20px;;
+    background-color:white;
+}
+#Image1{
+    height:70px;
+    width:180px;
+    justify-content: center;
+    padding-left: 190px;
+    align-items: center;
+    padding-top: 125px;
+}
+.titleicon{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.con1{
+    height: 4.2rem;
+    width: 66.2rem;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-right:1px;
+    display: flex;
+    flex-direction:  row; 
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+.submenu1{
+ /*   display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height:50px;
+    width:150px;
+    margin-left:50px;
+    margin-right: 50px;
+    color:rgb(57, 55, 55);*/
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+.submenu2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:50px;
+    width:150px;
+    background-color: black;
+    color: white;
+}
+.con2{
+    height: 4.2rem;
+    width: 66.2rem;
+    margin-bottom:0px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction:  row;
+    align-item:center;
+    justify-content: flex-end;
+}
+.submenu4,.submenu5,.submenu6,.submenu7,.submenu8{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+    width:120px;
+    margin-left:10px;
+}
+.submenu9{
+    display:flex;
+    justify-content: center;
+    align-items: center ;
+    height:30px;
+    width:240px;
+    margin-left:10px;
+    border-top-left-radius:20px ;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius:20px ;
+    border-bottom-left-radius:20px ;
+    background-color: blanchedalmond;
+    padding-top:5px;
+}
+#Image3{
+    height:17px;
+    width:17px;
+    justify-content: center;
+    align-items: center;
+    margin-right:5px;
+}
+.icon{
+    display:flex;
+    justify-content: flex-end;
+    margin-left: 120px;
+}
+.icon-circle1{
+        width: 40px; 
+        height: 40px; 
+        border-radius: 50%; 
+        display: flex;
+        background-color:rgb(19, 109, 139);
+        justify-content: center;
+        align-items: center;
+        color:white;
+ }
+ #Image4{
+    height:30px;
+    width:30px;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    margin-right:5px;
+}
+ .icon-circle2{
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background-color:rgb(19, 109, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+#Image5{
+    height:30px;
+    width:30px;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    margin-right:5px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 430px;
+    margin-top: 10px;
+    width:1205px;
+
+}
+.List{
+    height: 350px;
+    margin: 15px;
+    width: 1700px;
+    justify-content: center;
+    align-items: center;
+}
+#Image2{
+    height:400px;
+    width: 1000px;
+    padding-left:85px;
+}
+.Scrollbar{
+    display:flex;
+    height:50px;
+    width:150px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    padding-top:25px;
+}
+#Image6{
+    height:20px;
+    width:550px;
+}
+
